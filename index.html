@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CastelAutos: compra y venta de vehículos nuevos y usados. Catálogo con filtros, ficha técnica y financiación.">
+  <title>CastelAutos | Compra y venta de vehículos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap topbar__row">
+      <a href="#/" class="logo" aria-label="CastelAutos - inicio">
+        <span class="logo__mark">C</span>
+        <span class="logo__text">Castel<strong>Autos</strong></span>
+      </a>
+
+      <form id="searchForm" class="search" role="search">
+        <input id="searchInput" type="search" placeholder="Busca por marca, modelo, año o ciudad…" autocomplete="off" aria-label="Buscar vehículos">
+        <button type="submit" aria-label="Buscar">🔍</button>
+      </form>
+
+      <nav class="topnav">
+        <a href="#/favoritos" class="topnav__link">♥ Favoritos <span id="favCount" class="count">0</span></a>
+      </nav>
+    </div>
+
+    <div class="subnav">
+      <div class="wrap subnav__row">
+        <button data-quick="todos">Todos</button>
+        <button data-quick="condicion:Nuevo">Nuevos</button>
+        <button data-quick="condicion:Usado">Usados</button>
+        <button data-quick="tipo:SUV">SUV</button>
+        <button data-quick="tipo:Sedán">Sedanes</button>
+        <button data-quick="tipo:Hatchback">Hatchback</button>
+        <button data-quick="tipo:Pickup">Pickups</button>
+        <button data-quick="tipo:Deportivo">Deportivos</button>
+        <button data-quick="combustible:Eléctrico">Eléctricos</button>
+        <button data-quick="combustible:Híbrido">Híbridos</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="wrap"></main>
+
+  <footer class="footer">
+    <div class="wrap footer__row">
+      <div>
+        <strong>CastelAutos</strong>
+        <p>Prototipo de demostración. Los vehículos, precios y vendedores son datos ficticios.</p>
+      </div>
+      <div>
+        <strong>Comprar</strong>
+        <p>Catálogo · Financiación · Prueba de manejo</p>
+      </div>
+      <div>
+        <strong>Vender</strong>
+        <p>Publica tu vehículo · Peritaje · Permuta</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal de contacto / prueba de manejo -->
+  <dialog id="modal" class="modal">
+    <form id="leadForm" method="dialog">
+      <header class="modal__head">
+        <h2 id="modalTitle">Contactar al vendedor</h2>
+        <button type="button" class="icon-btn" data-act="close-modal" aria-label="Cerrar">✕</button>
+      </header>
+      <p id="modalSub" class="muted"></p>
+      <label>Nombre completo
+        <input name="nombre" required autocomplete="name">
+      </label>
+      <label>Teléfono / WhatsApp
+        <input name="tel" type="tel" required autocomplete="tel">
+      </label>
+      <label>Correo electrónico
+        <input name="email" type="email" required autocomplete="email">
+      </label>
+      <label id="dateRow" hidden>Fecha y hora preferida
+        <input name="fecha" type="datetime-local">
+      </label>
+      <label>Mensaje
+        <textarea name="msg" rows="3"></textarea>
+      </label>
+      <button class="btn btn--primary btn--block" type="submit">Enviar</button>
+      <p class="muted small">Al enviar aceptas que el vendedor te contacte. (Demo: los datos solo se guardan en tu navegador.)</p>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
